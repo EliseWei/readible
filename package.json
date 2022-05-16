@@ -1,0 +1,19 @@
+{
+  "name": "readible",
+  "version": "1.0.0",
+  "description": "Setup extensions, themes, fonts for highly readable experience",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dyslexia",
+    "vscode",
+    "themes"
+  ],
+  "author": "Elise Wei",
+  "license": "ISC",
+  "devDependencies": {
+    "enquirer": "^2.3.6"
+  }
+}
