@@ -1,4 +1,5 @@
 const { prompt } = require('enquirer')
+const path = require('path')
 
 function promptUser(onComplete) {
   const responseCollection = {}
@@ -12,7 +13,7 @@ function promptUser(onComplete) {
     type: 'input',
     name: 'pathToFonts',
     message: 'Path to your fonts:',
-    initial: `/Library/Fonts`
+    initial: path.join('/Library', 'Fonts')
   }]).then(answers => {
     Object.assign(responseCollection, answers)
     if (answers.newCodeProfile) {
@@ -24,21 +25,23 @@ function promptUser(onComplete) {
       })
         .then((secondAnswers) => {
           Object.assign(responseCollection, secondAnswers)
+          const pathToNewSettings = path.join(process.env.HOME, 'code_profiles', secondAnswers.codeAlias)
           return prompt({
             type: 'input',
             name: 'pathToSettings',
             message: 'Path to your new settings file:',
-            initial: `${process.env.HOME}/code_profiles/${secondAnswers.codeAlias}/`
+            initial: pathToNewSettings
           })
         })
         .then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))
     } else {
+      const pathToOldSettings = path.join(process.env.HOME, 'Library', 'Application\ Support', 'Code', 'User', 'settings.json')
       prompt(
         {
           type: 'input',
           name: 'pathToSettings',
           message: 'Path to your settings file:',
-          initial: `${process.env.HOME}/Library/Application\ Support/Code/User/settings.json`
+          initial: pathToOldSettings
 
         }
       ).then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))

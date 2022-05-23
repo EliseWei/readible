@@ -10,7 +10,7 @@ function installExtensions() {
   console.log(`installing extensions...`)
   Promise.all(extensions.map(extension => {
     return exec(`code --force --install-extension ${extension}`,
-      { shell: '/bin/zsh' },
+      { shell: process.env.SHELL },
       (error) => {
         if (error) {
           console.log(error)
