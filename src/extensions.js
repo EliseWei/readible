@@ -7,8 +7,8 @@ const extensions = [
 ]
 
 function installExtensions() {
-  console.log(`installing extensions...`)
-  Promise.all(extensions.map(extension => {
+  console.group('Installing extensions...')
+  return Promise.all(extensions.map(extension => {
     return exec(`code --force --install-extension ${extension}`,
       { shell: process.env.SHELL },
       (error) => {
@@ -18,5 +18,7 @@ function installExtensions() {
         }
       })
   }))
+    .then(() => console.log('✅ Extensions installed'))
+    .finally(() => console.groupEnd())
 }
 module.exports = installExtensions

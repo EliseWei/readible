@@ -5,7 +5,7 @@ const installFont = require('./src/installFont')
 const promptUser = require('./src/promptUser')
 const config = require('./userconfig')
 
-const setup = ({ newCodeProfile, codeAlias, pathToSettings, pathToFonts } = {}) => {
+  console.log('----------------------')
   if (newCodeProfile) {
     buildNewProfileAndAlias(codeAlias, pathToSettings)
       .then(() => installFont(pathToFonts))
@@ -19,6 +19,7 @@ const setup = ({ newCodeProfile, codeAlias, pathToSettings, pathToFonts } = {}) 
       .then(() => console.log('Done!'))
       .catch(console.log)
   }
+  console.log('----------------------')
 }
 
 if (config.newCodeProfile !== undefined) {

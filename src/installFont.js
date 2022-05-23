@@ -3,6 +3,7 @@ const { constants } = require('fs')
 const path = require('path')
 
 function installFont(pathToFonts) {
+  console.group('Attempting to install fonts...')
   const fontFileName = 'OpenDyslexicMono-Regular.otf'
   const pathToFontFile = path.join('resources', fontFileName)
   const pathToFontDestination = path.join(pathToFonts, fontFileName)
@@ -26,6 +27,7 @@ function installFont(pathToFonts) {
       console.log('🛑 No permission to write to fonts folder. You can change the permissions or manually copy')
       console.log(`${path.resolve(__dirname, pathToFontFile)} to\n${pathToFontDestination}`)
     })
+    .finally(() => console.groupEnd())
 }
 
 module.exports = installFont
