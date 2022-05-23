@@ -17,10 +17,10 @@ function installFont(pathToFonts) {
       )
         .then(() => console.log('✅ Font file copied'))
         .catch(err => {
-          if (err.message.match("file already exists")) {
+          if (err.message.match('file already exists')) {
             console.log('✅ You already have this font.')
           } else {
-            console.log("❗️Oh no!", err)
+            console.log('❗️Oh no!', err)
           }
         })
     }).catch((err) => {

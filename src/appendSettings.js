@@ -12,15 +12,15 @@ function appendOrCreateSettings(pathToSettings) {
         .then(() => console.log('✅ Settings added'))
     })
     .catch(err => {
-      if (err.message.match("Unexpected token")) {
-        console.log(err, "\n❓ The most likely cause of this is slightly malformed JSON")
-      } else if (err.message.match("no such file")) {
-        console.log("🔎 No settings file found at the specified location. Creating a new one.")
+      if (err.message.match('Unexpected token')) {
+        console.log(err, '\n❓ The most likely cause of this is slightly malformed JSON')
+      } else if (err.message.match('no such file')) {
+        console.log('🔎 No settings file found at the specified location. Creating a new one.')
         // This is the create
         return writeFile(pathToSettings, JSON.stringify(additionalSettings))
           .then(() => console.log('✅ Settings added'))
       } else {
-        console.log("❗️ Oh no!", err)
+        console.log('❗️ Oh no!', err)
       }
     })
     .finally(() => console.groupEnd())
