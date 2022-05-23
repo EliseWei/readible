@@ -25,7 +25,7 @@ const installFont = async (pathToFonts) => {
       }
     }
   } catch (err) {
-    if (err.message.match('no such file or directory')) {
+    if (err.message.match('no such file')) {
       console.log(`❗️ ${pathToFonts} does not exist. You can manually copy ${path.resolve(__dirname, pathToFontFile)}, when you're certain where it should go`)
     } else if (err.message.match('permission denied')) {
       console.log('🛑 No permission to write to fonts folder. You can change the permissions or manually copy')
