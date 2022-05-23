@@ -1,6 +1,6 @@
 // un-commenting this object will trigger use of
 // the config, rather than the command line prompts
-module.exports = {
+// module.exports = {
 //   // True to generate a whole new code_profile,
 //   // false to modify your existing settings
 //   newCodeProfile: false,
