@@ -3,7 +3,7 @@ const path = require('path')
 
 function promptUser(onComplete) {
   const responseCollection = {}
-  prompt([{
+  return prompt([{
     type: 'toggle',
     name: 'newCodeProfile',
     message: 'Use default code_profile or make a new one?',
@@ -17,7 +17,7 @@ function promptUser(onComplete) {
   }]).then(answers => {
     Object.assign(responseCollection, answers)
     if (answers.newCodeProfile) {
-      prompt({
+      return prompt({
         type: 'input',
         name: 'codeAlias',
         message: 'Alias to run VS Code with new profile:',
@@ -36,7 +36,7 @@ function promptUser(onComplete) {
         .then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))
     } else {
       const pathToOldSettings = path.join(process.env.HOME, 'Library', 'Application\ Support', 'Code', 'User', 'settings.json')
-      prompt(
+      return prompt(
         {
           type: 'input',
           name: 'pathToSettings',
