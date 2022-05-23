@@ -46,6 +46,8 @@ function promptUser(onComplete) {
         }
       ).then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))
     }
+  }).catch(err => {
+    console.log('Process cancelled')
   })
 }
 

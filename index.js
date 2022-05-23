@@ -10,7 +10,7 @@ const setup = ({ newCodeProfile, codeAlias, pathToSettings, pathToFonts } = {}) 
     buildNewProfileAndAlias(codeAlias, pathToSettings)
       .then(() => installFont(pathToFonts))
       .then(() => installExtensions())
-      .then(() => console.log('Alias created. Restart your terminal.'))
+      .then(() => console.log('Done!'))
       .catch(console.log)
   } else {
     appendOrCreateSettings(pathToSettings)
