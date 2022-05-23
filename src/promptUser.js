@@ -4,6 +4,9 @@ const path = require('path')
 const promptUser = async (onComplete) => {
   const responseCollection = {}
   try {
+    const fontPathDefault = process.platform === 'win32'
+      ? path.join('/usr', 'share', 'fonts')
+      : path.join('/Library', 'Fonts')
     const answers = await prompt([{
       type: 'toggle',
       name: 'newCodeProfile',
@@ -14,7 +17,7 @@ const promptUser = async (onComplete) => {
       type: 'input',
       name: 'pathToFonts',
       message: 'Path to your fonts:',
-      initial: path.join('/Library', 'Fonts')
+      initial: fontPathDefault
     }])
     Object.assign(responseCollection, answers)
     if (answers.newCodeProfile) {
