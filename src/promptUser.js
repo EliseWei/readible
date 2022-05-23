@@ -1,42 +1,41 @@
 const { prompt } = require('enquirer')
 const path = require('path')
 
-function promptUser(onComplete) {
+const promptUser = async (onComplete) => {
   const responseCollection = {}
-  return prompt([{
-    type: 'toggle',
-    name: 'newCodeProfile',
-    message: 'Use default code_profile or make a new one?',
-    disabled: 'Use default',
-    enabled: 'Create new'
-  }, {
-    type: 'input',
-    name: 'pathToFonts',
-    message: 'Path to your fonts:',
-    initial: path.join('/Library', 'Fonts')
-  }]).then(answers => {
+  try {
+    const answers = await prompt([{
+      type: 'toggle',
+      name: 'newCodeProfile',
+      message: 'Use default code_profile or make a new one?',
+      disabled: 'Use default',
+      enabled: 'Create new'
+    }, {
+      type: 'input',
+      name: 'pathToFonts',
+      message: 'Path to your fonts:',
+      initial: path.join('/Library', 'Fonts')
+    }])
     Object.assign(responseCollection, answers)
     if (answers.newCodeProfile) {
-      return prompt({
+      const secondAnswers = await prompt({
         type: 'input',
         name: 'codeAlias',
         message: 'Alias to run VS Code with new profile:',
         initial: 'demo'
       })
-        .then((secondAnswers) => {
-          Object.assign(responseCollection, secondAnswers)
-          const pathToNewSettings = path.join(process.env.HOME, 'code_profiles', secondAnswers.codeAlias)
-          return prompt({
-            type: 'input',
-            name: 'pathToSettings',
-            message: 'Path to your new settings file:',
-            initial: pathToNewSettings
-          })
-        })
-        .then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))
+      Object.assign(responseCollection, secondAnswers)
+      const pathToNewSettings = path.join(process.env.HOME, 'code_profiles', secondAnswers.codeAlias)
+      const moreAnswers = await prompt({
+        type: 'input',
+        name: 'pathToSettings',
+        message: 'Path to your new settings file:',
+        initial: pathToNewSettings
+      })
+      Object.assign(responseCollection, moreAnswers)
     } else {
       const pathToOldSettings = path.join(process.env.HOME, 'Library', 'Application\ Support', 'Code', 'User', 'settings.json')
-      return prompt(
+      const moreAnswers = await prompt(
         {
           type: 'input',
           name: 'pathToSettings',
@@ -44,11 +43,13 @@ function promptUser(onComplete) {
           initial: pathToOldSettings
 
         }
-      ).then(moreAnswers => onComplete({ ...responseCollection, ...moreAnswers }))
+      )
+      Object.assign(responseCollection, moreAnswers)
     }
-  }).catch(err => {
+    onComplete(responseCollection)
+  } catch (err) {
     console.log('Process cancelled')
-  })
+  }
 }
 
 module.exports = promptUser
