@@ -16,6 +16,8 @@ module.exports = {
       "panelTitle.activeForeground": "#000",
       "panelTitle.inactiveForeground": "#668",
       "terminal.background": "#ebf2f8",
+      "terminal.ansiBrightGreen": "#439D4D",
+      "terminal.ansiGreen": "#31863b",
       "statusBar.background": "#4392c3",
       "gitDecoration.untrackedResourceForeground": "#439D4D",
       "gitDecoration.modifiedResourceForeground": "#e47b02",
