@@ -2,6 +2,23 @@
 
 A tool for quickly setting up a baseline for a more readable VS Code experience. This includes many customizations recommended for users with dyslexia, including VS Code extensions, a lower-contrast color theme, and an open-source typeface. Different adjustments will work for different people, so this is **only a starting point**. I highly recommend testing additional customizations to see what works best.
 
+<img width="1274" alt="screenshot" src="./src/resources/screenshot.png">
+
+## What's included
+
+### Extensions:
+- The [dislexic color theme](https://github.com/SpeedyLom/dislexic-vscode), with some modifications to reduce contrast
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsIDEsoftware.code-spell-checker)
+- [VS Code Icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+
+### Style and appearance
+- Use of [the Open Dyslexic typeface](https://www.opendyslexic.org/)
+- Font size, line height, zoom adjustments
+- Minimap disabled, whitespace characters hidden
+
+### Code profiles
+If desired, rather than using these settings as your default, you can set up a separate VS Code profile to run with Readible settings when triggered by a specific alias. This may be useful if you want to use one theme when coding alone and an alternate configuration for pair programming or live coding demos, for example.
+
 ## To use
 - Clone the repo, `npm install`, and `node .` from the root of the project.
 - Follow the prompts (sensible defaults have been inferred, where possible):
