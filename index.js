@@ -15,7 +15,7 @@ const setup = async ({ newCodeProfile, codeAlias, pathToSettings, pathToFonts } 
     }
     await installFont(pathToFonts)
     await installExtensions()
-    console.log('Done!')
+    console.log('🥳 Done!')
   } catch (err) {
     console.log(err)
   }

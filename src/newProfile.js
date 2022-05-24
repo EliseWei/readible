@@ -20,7 +20,7 @@ const createNewProfile = async (codeAlias, pathToSettings) => {
     await readFile(aliasPath, { encoding: 'utf-8' })
     try {
       await appendFile(aliasPath, aliasString)
-      console.log('✅ Alias created. Restart your terminal.')
+      console.log('✅ Alias created. Restart your terminal in order to use it.')
     } catch (err) {
       console.log('❗️Oh no!', err)
     }

@@ -5,11 +5,11 @@ A tool for quickly setting up a baseline for a more readable VS Code experience.
 ## To use
 - Clone the repo, `npm install`, and `node .` from the root of the project.
 - Follow the prompts (sensible defaults have been inferred, where possible):
-  1. Either modify your default code profile or create a new one. A new one is useful if you want to use the accessible settings separately from your existing setup, for example, only when doing live code demos.
-  2. Where you'd like your new font file to go. Probably with your other fonts.
-  3. If creating a new code profile, what command you'd like to use to run it, and where you'd like it to be stored.
-  4. If not creating a new code profile, where to find your existing settings.
-- The script should install everything and provide some useful feedback. You may need to manually add the new alias for a new code profile (Windows users, especially).
+  1. Choose to either modify your default code profile or create a new one. A new one is useful if you want to use the accessible settings separately from your existing setup, for example, only when doing live code demos.
+  2. Select where you'd like your new font file to go -- probably with your other fonts. You may wish to check the write permissions on this directory.
+  3. If creating a new code profile, choose the command you'd like to use to run it. Also specify where you'd like it to be stored.
+  4. If not creating a new code profile, specify where to find your existing settings. You can find this file by opening your settings.json from VS Code command palette.
+- The script should install everything or at least provide some useful feedback, including instructions for how to complete any steps it had trouble with.
 
 Alternately, the object in userconfig.js can be un-commented and populated with the same information, if you prefer, before running `node i`
 
@@ -19,3 +19,4 @@ You will either see an immediate change in your VS Code appearance (if you chose
 - Jenn Hall for [Personalising VSCode for Dyslexia](https://jenn-hall.medium.com/personalising-vscode-for-dyslexia-60aac1a36b4d) from which _many_ suggestions have been drawn
 - SpeedyLom for his [dislexic color theme](https://github.com/SpeedyLom/dislexic-vscode), which I have customized only slightly
 - The fine folks who created [the Open Dyslexic typeface](https://www.opendyslexic.org/)
+- JavaScript Joe for [How to Create Code Profiles in VSCode](https://www.freecodecamp.org/news/how-to-create-code-profiles-in-vscode/)
