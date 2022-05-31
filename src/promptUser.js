@@ -1,12 +1,11 @@
 const { prompt } = require('enquirer')
 const path = require('path')
+const getDefaultPaths = require('./getDefaultPaths')
 
 const promptUser = async (onComplete) => {
   const responseCollection = {}
+  const defaultPaths = await getDefaultPaths()
   try {
-    const fontPathDefault = process.platform === 'win32'
-      ? path.join('/usr', 'share', 'fonts')
-      : path.join('/Library', 'Fonts')
     const answers = await prompt([{
       type: 'toggle',
       name: 'newCodeProfile',
@@ -17,7 +16,7 @@ const promptUser = async (onComplete) => {
       type: 'input',
       name: 'pathToFonts',
       message: 'Path to your fonts:',
-      initial: fontPathDefault
+      initial: defaultPaths.fonts
     }])
     Object.assign(responseCollection, answers)
     if (answers.newCodeProfile) {
@@ -28,7 +27,7 @@ const promptUser = async (onComplete) => {
         initial: 'demo'
       })
       Object.assign(responseCollection, secondAnswers)
-      const pathToNewSettings = path.join(process.env.HOME, 'code_profiles', secondAnswers.codeAlias)
+      const pathToNewSettings = path.join(defaultPaths.codeProfiles, secondAnswers.codeAlias)
       const moreAnswers = await prompt({
         type: 'input',
         name: 'pathToSettings',
@@ -37,13 +36,12 @@ const promptUser = async (onComplete) => {
       })
       Object.assign(responseCollection, moreAnswers)
     } else {
-      const pathToOldSettings = path.join(process.env.HOME, 'Library', 'Application\ Support', 'Code', 'User', 'settings.json')
       const moreAnswers = await prompt(
         {
           type: 'input',
           name: 'pathToSettings',
           message: 'Path to your settings file:',
-          initial: pathToOldSettings
+          initial: defaultPaths.currentSettings
 
         }
       )
@@ -52,6 +50,7 @@ const promptUser = async (onComplete) => {
     onComplete(responseCollection)
   } catch (err) {
     console.log('Process cancelled')
+    console.log(err)
   }
 }
 
