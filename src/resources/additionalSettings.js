@@ -42,5 +42,8 @@ module.exports = {
   "editor.renderWhitespace": "none",
   "editor.renderControlCharacters": false,
   "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active"
+  "editor.guides.bracketPairs": "active",
+  "markdown.preview.lineHeight": 2,
+  "markdown.preview.fontSize": 16,
+  "markdown.preview.fontFamily": "OpenDyslexicMono-Regular, 'Courier New', monospace"
 }
