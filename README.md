@@ -28,7 +28,7 @@ If desired, rather than using these settings as your default, you can set up a s
   4. If not creating a new code profile, specify where to find your existing settings. You can find this file by opening your settings.json from VS Code command palette.
 - The script should install everything or at least provide some useful feedback, including instructions for how to complete any steps it had trouble with.
 
-Alternately, the object in userconfig.js can be un-commented and populated with the same information, if you prefer, before running `node i`
+Alternately, the object in userconfig.js can be un-commented and populated with the same information, if you prefer, before running `node .`
 
 You will either see an immediate change in your VS Code appearance (if you chose to modify your default code profile) or you can run your chosen command to start a new instance of VS Code which will use the alternate profile.
 
