@@ -21,7 +21,7 @@ If desired, rather than using these settings as your default, you can set up a s
 
 ## To use
 - Clone the repo, `npm install`, and `node .` from the root of the project.
-- Follow the prompts (sensible defaults have been inferred, where possible):
+- Ideally, you should be able to accept all the default settings offered by the prompts. Here's more detail on each:
   1. Choose to either modify your default code profile or create a new one. A new one is useful if you want to use the accessible settings separately from your existing setup, for example, only when doing live code demos.
   2. Select where you'd like your new font file to go -- probably with your other fonts. You may wish to check the write permissions on this directory.
   3. If creating a new code profile, choose the command you'd like to use to run it. Also specify where you'd like it to be stored.
