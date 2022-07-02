@@ -19,6 +19,9 @@ A tool for quickly setting up a baseline for a more readable VS Code experience.
 ### Code profiles
 If desired, rather than using these settings as your default, you can set up a separate VS Code profile to run with Readible settings when triggered by a specific alias. This may be useful if you want to use one theme when coding alone and an alternate configuration for pair programming or live coding demos, for example.
 
+### iTerm profile
+I've adapted several appearance configurations from VS Code into an importable iTerm profile that includes both dark and light color themes, as well as adjusted fonts.
+
 ## To use
 - Clone the repo, `npm install`, and `node .` from the root of the project.
 - Follow the prompts (sensible defaults have been inferred, where possible):
@@ -31,6 +34,9 @@ If desired, rather than using these settings as your default, you can set up a s
 Alternately, the object in userconfig.js can be un-commented and populated with the same information, if you prefer, before running `node .`
 
 You will either see an immediate change in your VS Code appearance (if you chose to modify your default code profile) or you can run your chosen command to start a new instance of VS Code which will use the alternate profile.
+
+### To use the iTerm profile
+In iTerm, go to Preferences > Profiles. In the lower left, click "Other Actions..." and select "Import JSON Profiles..." before locating and choosing this file from your cloned project: `/src/resources/iterm-Readible.json`. You may need to set that to be the default profile before you see a change.
 
 ## Acknowledgements
 - Jenn Hall for [Personalising VSCode for Dyslexia](https://jenn-hall.medium.com/personalising-vscode-for-dyslexia-60aac1a36b4d) from which _many_ suggestions have been drawn
