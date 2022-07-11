@@ -2,11 +2,11 @@ const appendOrCreateSettings = require('./appendSettings')
 const { mkdir, appendFile, readFile } = require('fs/promises')
 const path = require('path')
 
-const createNewProfile = async (codeAlias, pathToSettings) => {
+const createNewProfile = async (codeAlias, pathToSettings, includeTracking) => {
   const dataPath = path.join(pathToSettings, 'data', 'User')
   try {
     await mkdir(dataPath, { recursive: true })
-    await appendOrCreateSettings(path.join(dataPath, 'settings.json'))
+    await appendOrCreateSettings(path.join(dataPath, 'settings.json'), includeTracking)
   } catch (err) {
     console.log('Failed to create a new profile\n', err)
   }

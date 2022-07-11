@@ -8,6 +8,12 @@ const promptUser = async (onComplete) => {
   try {
     const answers = await prompt([{
       type: 'toggle',
+      name: 'includeTracking',
+      message: 'Include task tracking tools?',
+      enabled: 'Yes',
+      disabled: 'No thanks'
+    }, {
+      type: 'toggle',
       name: 'newCodeProfile',
       message: 'Use default code_profile or make a new one?',
       disabled: 'Use default',

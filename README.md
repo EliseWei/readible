@@ -1,8 +1,8 @@
 # Readible
 
-A tool for quickly setting up a baseline for a more readable VS Code experience. This includes many customizations recommended for users with dyslexia, including VS Code extensions, a lower-contrast color theme, and an open-source typeface. Different adjustments will work for different people, so this is **only a starting point**. I highly recommend testing additional customizations to see what works best.
+A tool for quickly setting up a baseline for a more readable VS Code experience. This includes many customizations recommended for users with dyslexia, including VS Code extensions, a lower-contrast color theme, and an open-source typeface. An optional set of tools improves task tracking in your code and in markdown. Different adjustments will work for different people, so this is **only a starting point**. I highly recommend testing additional customizations to see what works best.
 
-<img width="1274" alt="screenshot" src="./src/resources/screenshot.png">
+<img width="1274" alt="VS Code with readability customisations applied" src="./src/resources/screenshot.png">
 
 ## What's included
 
@@ -10,6 +10,10 @@ A tool for quickly setting up a baseline for a more readable VS Code experience.
 - The [dislexic color theme](https://github.com/SpeedyLom/dislexic-vscode), with some modifications to reduce contrast
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsIDEsoftware.code-spell-checker)
 - [VS Code Icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+- Optional tracking tools:
+  - [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
+  - Two extensions to improve the experience of previewing markdown within VS Code: [Markdown Preview](https://marketplace.visualstudio.com/items?itemName=ezrafree.markdown-preview) and [Markdown Checkboxes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-checkbox)
+  <img width="1274" alt="VS Code with markdown checkboxes highlighted and collected into a list in the sidebar" src="./src/resources/screenshot2.png">
 
 ### Style and appearance
 - Use of [the Open Dyslexic typeface](https://www.opendyslexic.org/)
@@ -25,10 +29,11 @@ I've adapted several appearance configurations from VS Code into an importable i
 ## To use
 - Clone the repo, `npm install`, and `node .` from the root of the project.
 - Ideally, you should be able to accept all the default settings offered by the prompts. Here's more detail on each:
-  1. Choose to either modify your default code profile or create a new one. A new one is useful if you want to use the accessible settings separately from your existing setup, for example, only when doing live code demos.
-  2. Select where you'd like your new font file to go -- probably with your other fonts. You may wish to check the write permissions on this directory.
-  3. If creating a new code profile, choose the command you'd like to use to run it. Also specify where you'd like it to be stored.
-  4. If not creating a new code profile, specify where to find your existing settings. You can find this file by opening your settings.json from VS Code command palette.
+  1. Choose whether or not to include task tracking tooling
+  2. Choose to either modify your default code profile or create a new one. A new one is useful if you want to use the accessible settings separately from your existing setup, for example, only when doing live code demos.
+  3. Select where you'd like your new font file to go -- probably with your other fonts. You may wish to check the write permissions on this directory.
+  4. If creating a new code profile, choose the command you'd like to use to run it. Also specify where you'd like it to be stored.
+  5. If not creating a new code profile, specify where to find your existing settings. You can find this file by opening your settings.json from VS Code command palette.
 - The script should install everything or at least provide some useful feedback, including instructions for how to complete any steps it had trouble with.
 
 Alternately, the object in userconfig.js can be un-commented and populated with the same information, if you prefer, before running `node .`

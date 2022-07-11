@@ -5,16 +5,16 @@ const installFont = require('./src/installFont')
 const promptUser = require('./src/promptUser')
 const config = require('./userconfig')
 
-const setup = async ({ newCodeProfile, codeAlias, pathToSettings, pathToFonts } = {}) => {
+const setup = async ({ includeTracking, newCodeProfile, codeAlias, pathToSettings, pathToFonts } = {}) => {
   console.log('----------------------')
   try {
     if (newCodeProfile) {
-      await buildNewProfileAndAlias(codeAlias, pathToSettings)
+      await buildNewProfileAndAlias(codeAlias, pathToSettings, includeTracking)
     } else {
-      await appendOrCreateSettings(pathToSettings)
+      await appendOrCreateSettings(pathToSettings, includeTracking)
     }
     await installFont(pathToFonts)
-    await installExtensions()
+    await installExtensions(includeTracking)
     console.log('🥳 Done!')
   } catch (err) {
     console.log(err)
