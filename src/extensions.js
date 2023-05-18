@@ -4,13 +4,13 @@ const extensions = [
   'SpeedyLom.dislexic-vscode',
   'streetsidesoftware.code-spell-checker',
   'vscode-icons-team.vscode-icons'
-]
+];
 
 const trackingExtensions = [
   'Gruntfuggly.todo-tree',
   'ezrafree.markdown-preview',
   'bierner.markdown-checkbox'
-]
+];
 
 const installExtensions = async (includeTracking) => {
   console.group('Installing extensions...')
@@ -27,5 +27,5 @@ const installExtensions = async (includeTracking) => {
   }))
   console.log('✅ Extensions installed')
   console.groupEnd()
-}
-module.exports = installExtensions
+};
+module.exports = installExtensions;
